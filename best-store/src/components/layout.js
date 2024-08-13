@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 export function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg bg-white border-bottom box-shadow">
             <div className="container">
-                <a
+                <Link
                     className="navbar-brand"
-                    href="/"
+                    to="/"
                 >
                     <img
                         src="/icon.png"
@@ -13,7 +15,7 @@ export function Navbar() {
                         className="me-2"
                     />
                     Best Store
-                </a>
+                </Link>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -31,29 +33,61 @@ export function Navbar() {
                 >
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link text-dark" aria-current="page" href="/home">Home</a>
+                            <Link
+                                className="nav-link text-dark"
+                                aria-current="page"
+                                to="/"
+                            >
+                                Home
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-dark" href="/contact">Contact</a>
+                            <Link
+                                className="nav-link text-dark"
+                                to="/contact"
+                            >
+                                Contact
+                            </Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav">
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle text-dark" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a
+                                className="nav-link dropdown-toggle text-dark"
+                                href="/"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
                                 Admin
                             </a>
                             <ul className="dropdown-menu">
                                 <li>
-                                    <a className="dropdown-item" href="/products">Products</a>
+                                    <Link
+                                        className="dropdown-item"
+                                        to="/products"
+                                    >
+                                        Products
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item" href="/profile">Profile</a>
+                                    <Link
+                                        className="dropdown-item"
+                                        to="/profile"
+                                    >
+                                        Profile
+                                    </Link>
                                 </li>
                                 <li>
                                     <hr className="dropdown-divider" />
                                 </li>
                                 <li>
-                                    <a className="dropdown-item" href="/login">Logout</a>
+                                    <Link
+                                        className="dropdown-item"
+                                        to="/logout"
+                                    >
+                                        Logout
+                                    </Link>
                                 </li>
                             </ul>
                         </li>
@@ -67,8 +101,13 @@ export function Navbar() {
 export function Footer() {
     return (
         <div className="text-center p-4 border-top">
-            <img src="/icon.png" alt="..." width="30" className="me-2" />
+            <img
+                src="/icon.png"
+                alt="..."
+                width="30"
+                className="me-2"
+            />
             Best Store
         </div>
-    )
+    );
 }
