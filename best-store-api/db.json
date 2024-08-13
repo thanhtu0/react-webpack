@@ -1,0 +1,24 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "MSI Pulse",
+            "brand": "MSI",
+            "category": "Computers",
+            "price": "899",
+            "description": "MSI Pulse GL66 15.6\" FHD 144Hz Gaming Laptop: Intel Core i7-12700H RTX 3070 16GB 512GB NV...",
+            "imageFilename": "22866337.jpg",
+            "createdAt": "2023-07-13T17:46:54:8900000"
+        },
+        {
+            "id": 2,
+            "name": "MSI Pulse",
+            "brand": "MSI",
+            "category": "Computers",
+            "price": "899",
+            "description": "MSI Pulse GL66 15.6\" FHD 144Hz Gaming Laptop: Intel Core i7-12700H RTX 3070 16GB 512GB NV...",
+            "imageFilename": "22866337.jpg",
+            "createdAt": "2023-07-13T17:46:54:8900000"
+        }
+    ]
+}
