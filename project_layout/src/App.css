@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 1440px;
+  margin: auto;
+  overflow: hidden;
+}
+
+
+body {
+  font-family: 'Lexend', sans-serif;
+}
+
+.go-to-top {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  background-color: grey;
+  color: #FBFBFB;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.go-to-top:hover {
+  background-color: lightgray;
+}
+
+.go-to-top svg {
+  width: 20px;
+  height: 20px;
+}
