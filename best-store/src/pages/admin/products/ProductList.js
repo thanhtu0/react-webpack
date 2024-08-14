@@ -49,6 +49,10 @@ export default function ProductList() {
         return `${year}-${month}-${day}`;
     };
 
+    const formatPrice = (price) => {
+        return Number(price).toLocaleString("en-US");
+    };
+
     return (
         <div className="container my-4">
             <h2 className="text-center mb-4">Products</h2>
@@ -72,7 +76,6 @@ export default function ProductList() {
                 </div>
                 <div className="col"></div>
             </div>
-
             <table className="table">
                 <thead>
                     <tr>
@@ -97,7 +100,7 @@ export default function ProductList() {
                                 <td>{product.name}</td>
                                 <td>{product.brand}</td>
                                 <td>{product.category}</td>
-                                <td>{product.price} vnđ</td>
+                                <td>{formatPrice(product.price)} vnđ</td>
                                 <td>
                                     <img
                                         src={
