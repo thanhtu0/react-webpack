@@ -29,11 +29,10 @@ export default function ProductList() {
             return "Invalid Date";
         }
         const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
         return `${year}-${month}-${day}`;
     };
-
 
     return (
         <div className="container my-4">
@@ -75,12 +74,15 @@ export default function ProductList() {
                 <tbody>
                     {products.map((product, index) => {
                         return (
-                            <tr key={index}>
+                            <tr
+                                key={index}
+                                className="align-middle"
+                            >
                                 <td>{product.id}</td>
                                 <td>{product.name}</td>
                                 <td>{product.brand}</td>
                                 <td>{product.category}</td>
-                                <td>{product.price}vnđ</td>
+                                <td>{product.price} vnđ</td>
                                 <td>
                                     <img
                                         src={
@@ -100,7 +102,7 @@ export default function ProductList() {
                                 >
                                     <Link
                                         className="btn btn-primary btn-sm me-1"
-                                        to={"/admin/products/edit" + product.id}
+                                        to={"/admin/products/edit/" + product.id}
                                     >
                                         Edit
                                     </Link>
