@@ -204,7 +204,7 @@
       "id": 21,
       "name": "Mẫu áo đấu CLB Barca ",
       "brand": "Tường Vy Sports ",
-      "category": "Other",
+      "category": "Football",
       "price": "179000",
       "description": "Áo Đấu Barca Mẫu Mới 2023/24 Màu Trắng Hot Nhất",
       "imageFilename": "Barca-2023-24-03.jpg",
@@ -223,7 +223,7 @@
     {
       "name": "Mẫu áo Bóng Rổ",
       "brand": "Thanh Tú Sports",
-      "category": "Other",
+      "category": "Basketball",
       "price": "129000",
       "description": "Mẫu Áo Bóng Rổ Thiết Kế Sáng Tạo Dành Cho Trẻ Em",
       "imageFilename": "1723618145811_AoBongRo-V-BR-0050.jpg",
@@ -233,7 +233,7 @@
     {
       "name": "Mẫu áo Bóng Rổ ",
       "brand": "Thanh Tú Sports",
-      "category": "Other",
+      "category": "Basketball",
       "price": "299000",
       "description": "Mẫu Áo Bóng Rổ Được Yêu Thích Nhất",
       "imageFilename": "1723618177549_AoBongRo-V-BR-0049.jpg",
