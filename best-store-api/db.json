@@ -223,7 +223,7 @@
     {
       "name": "Mẫu áo Bóng Rổ",
       "brand": "Thanh Tú Sports",
-      "category": "Other",
+      "category": "Basketball",
       "price": "129.000",
       "description": "Mẫu Áo Bóng Rổ Thiết Kế Sáng Tạo Dành Cho Trẻ Em",
       "imageFilename": "1723618145811_AoBongRo-V-BR-0050.jpg",
@@ -231,14 +231,24 @@
       "id": 23
     },
     {
-      "name": "Mẫu áo Bóng Rổ",
+      "name": "Mẫu áo Bóng Rổ ",
       "brand": "Thanh Tú Sports",
-      "category": "Other",
+      "category": "Basketball",
       "price": "299.000",
       "description": "Mẫu Áo Bóng Rổ Được Yêu Thích Nhất",
       "imageFilename": "1723618177549_AoBongRo-V-BR-0049.jpg",
       "createdAt": "2024-08-14T06:49:37.552Z",
       "id": 24
+    },
+    {
+      "name": "Custom Men's Shoes",
+      "brand": "Nike",
+      "category": "Other",
+      "price": "45390000",
+      "description": "Nike Dunk High By You",
+      "imageFilename": "1723624652928_shoes-01.jpg",
+      "createdAt": "2024-08-14T08:37:32.929Z",
+      "id": 25
     }
   ]
 }

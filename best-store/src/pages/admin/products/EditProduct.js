@@ -25,7 +25,7 @@ export default function EditProduct() {
             });
     }
 
-    useEffect(getProduct, []);
+    useEffect(getProduct, [params.id]);
 
     async function handleSubmit(event) {
         event.preventDefault();

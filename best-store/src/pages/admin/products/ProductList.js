@@ -23,6 +23,21 @@ export default function ProductList() {
 
     useEffect(getProducts, []);
 
+    function deleteProduct(id) {
+        fetch("http://localhost:4000/products/" + id, {
+            method: "DELETE",
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error();
+                }
+                getProducts();
+            })
+            .catch((error) => {
+                alert("Unable to delete the product");
+            });
+    }
+
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         if (isNaN(date.getTime())) {
@@ -102,13 +117,18 @@ export default function ProductList() {
                                 >
                                     <Link
                                         className="btn btn-primary btn-sm me-1"
-                                        to={"/admin/products/edit/" + product.id}
+                                        to={
+                                            "/admin/products/edit/" + product.id
+                                        }
                                     >
                                         Edit
                                     </Link>
                                     <button
                                         type="button"
                                         className="btn btn-danger btn-sm"
+                                        onClick={() =>
+                                            deleteProduct(product.id)
+                                        }
                                     >
                                         Delete
                                     </button>
