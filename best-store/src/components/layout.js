@@ -65,7 +65,7 @@ export function Navbar() {
                                 <li>
                                     <Link
                                         className="dropdown-item"
-                                        to="/products"
+                                        to="/admin/products"
                                     >
                                         Products
                                     </Link>
