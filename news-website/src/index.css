@@ -11,14 +11,14 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
-nav {
+.nav-bar {
     display: flex;
     align-items: center;
     justify-content: space-around;
     background-color: lightblue;
     padding: 9px;
 }
-nav input {
+.nav-bar input {
     width: 250px;
     text-decoration: none;
     padding: 9px;
@@ -30,7 +30,7 @@ nav input {
     align-items: center;
     gap: 11px;
 }
-nav button {
+.nav-bar button {
     width: 70px;
     height: 38px;
     background-color: blue;
@@ -40,12 +40,12 @@ nav button {
     font-size: 16px;
     cursor: pointer;
 }
-nav ul {
+.nav-bar ul {
     display: flex;
     text-decoration: none;
     gap: 11px;
 }
-nav ul a{
+.nav-bar ul a {
     text-decoration: none;
     color: #000;
     font-weight: 600;
@@ -122,4 +122,61 @@ nav ul a{
     text-align: center;
     font-weight: 600;
     font-size: 26px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.page-link:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    font-weight: bold;
+}
+
+.page-item.active .page-link:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+.page-item.disabled .page-link:hover {
+    background-color: #fff;
+    color: #6c757d;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    border-radius: 0.25rem;
 }

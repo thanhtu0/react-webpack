@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import ReactPaginate from "react-paginate";
 
 const Newsapp = () => {
     const [search, setSearch] = useState("india");
-    const [newsData, setNewsData] = useState(null);
+    const [newsData, setNewsData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+    const itemsPerPage = 12;
 
     const API_KEY = "db3002f3a868477cbb1f610778a518db";
 
@@ -18,7 +21,7 @@ const Newsapp = () => {
 
     useEffect(() => {
         getData();
-    }, []);
+    }, [search]);
 
     const handleInput = (e) => {
         console.log(e.target.value);
@@ -29,9 +32,17 @@ const Newsapp = () => {
         setSearch(event.target.value);
     };
 
+    const handlePageChange = (selectedObject) => {
+        setCurrentPage(selectedObject.selected);
+    };
+
+    const indexOfLastItem = (currentPage + 1) * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = newsData.slice(indexOfFirstItem, indexOfLastItem);
+
     return (
         <div>
-            <nav>
+            <nav className="nav-bar">
                 <div>
                     <h1>Trendy News</h1>
                 </div>
@@ -85,7 +96,30 @@ const Newsapp = () => {
                 </button>
             </div>
 
-            <div>{newsData ? <Card data={newsData} /> : null}</div>
+            <div>
+                {currentItems.length > 0 ? <Card data={currentItems} /> : null}
+            </div>
+
+            <nav aria-label="Page navigation example">
+                <ul className="pagination">
+                    <ReactPaginate
+                        previousLabel={"Previous"}
+                        nextLabel={"Next"}
+                        breakLabel={"..."}
+                        breakClassName={"page-item"}
+                        pageClassName={"page-item"}
+                        pageLinkClassName={"page-link"}
+                        previousClassName={"page-item"}
+                        previousLinkClassName={"page-link"}
+                        nextClassName={"page-item"}
+                        nextLinkClassName={"page-link"}
+                        containerClassName={"pagination"}
+                        activeClassName={"active"}
+                        onPageChange={handlePageChange}
+                        pageCount={Math.ceil(newsData.length / itemsPerPage)}
+                    />
+                </ul>
+            </nav>
         </div>
     );
 };
