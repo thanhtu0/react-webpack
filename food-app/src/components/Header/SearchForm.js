@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useMealContext } from "../../context/mealContext";
 import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,7 @@ const SearchForm = () => {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
-    const { dispatch, meals } = useMealContext();
+    const { dispatch } = useMealContext();
 
     const handleSearchTerm = (e) => {
         e.preventDefault();
@@ -48,6 +48,7 @@ const SearchForm = () => {
                     size={20}
                 />
             </button>
+            {errorMsg && <p className="error-message">{errorMsg}</p>}
         </form>
     );
 };
