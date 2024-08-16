@@ -34,7 +34,7 @@ export const startFetchCategories = async (dispatch) => {
     }
 };
 
-export const startFetchSingMeal = async (dispatch, id) => {
+export const startFetchSingleMeal = async (dispatch, id) => {
     try {
         dispatch({ type: FETCH_SINGLE_MEAL_BEGIN });
         const response = await axios.get(`${MEAL_SINGLE_URL}${id}`);
