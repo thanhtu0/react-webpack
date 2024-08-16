@@ -1,10 +1,12 @@
 import { useSidebarContext } from "../../context/sidebarContext";
 import { ImCancelCircle } from "react-icons/im";
 import { Link } from "react-router-dom";
-
 import "./Sidebar.scss";
+import { useMealContext } from "../../context/mealContext";
+
 const Sidebar = () => {
     const { isSidebarOpen, closeSidebar } = useSidebarContext();
+    const { categories } = useMealContext();
 
     return (
         <nav className={`sidebar ${isSidebarOpen ? "sidebar-visible" : ""}`}>
@@ -18,15 +20,20 @@ const Sidebar = () => {
 
             <div className="side-content">
                 <ul className="side-nav">
-                    <li className="side-item">
-                        <Link
-                            to=""
-                            className="side-link ls-1 fs-13"
-                            onClick={() => closeSidebar()}
+                    {categories.map((category) => (
+                        <li
+                            className="side-item"
+                            key={category.idCategory}
                         >
-                            Side link here
-                        </Link>
-                    </li>
+                            <Link
+                                to={`/meal/category/${category.strCategory}`}
+                                className="side-link ls-1 fs-13"
+                                onClick={() => closeSidebar()}
+                            >
+                                {category.strCategory}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </nav>
