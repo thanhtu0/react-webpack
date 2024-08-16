@@ -26,7 +26,9 @@ export const MealProvider = ({ children }) => {
     }, []);
 
     return (
-        <MealContext.Provider value={{ ...state, startFetchCategories }}>
+        <MealContext.Provider
+            value={{ ...state, dispatch, startFetchCategories }}
+        >
             {children}
         </MealContext.Provider>
     );
