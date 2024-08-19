@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCategories } from "../../store/categorySlice";
+import { getCartTotal } from "../../store/cartSlice";
 
 const Navbar = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const dispatch = useDispatch();
     const { data: categories } = useSelector((state) => state.category);
+    const { totalItems } = useSelector((state) => state.cart);
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {
         dispatch(fetchCategories());
+        dispatch(getCartTotal());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -48,8 +53,10 @@ const Navbar = () => {
                                     <i className="fas fa-shopping-cart"></i>
                                 </span>
                                 <div className="btn-txt fw-5">
-                                    cart
-                                    <span className="cart-count-value"> 0</span>
+                                    Cart
+                                    <span className="cart-count-value">
+                                        {totalItems}
+                                    </span>
                                 </div>
                             </Link>
                         </div>
@@ -70,7 +77,6 @@ const Navbar = () => {
                             >
                                 <i className="fas fa-times"></i>
                             </button>
-
                             {categories.map((category) => (
                                 <li key={category.id}>
                                     <Link
