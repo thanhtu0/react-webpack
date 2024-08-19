@@ -6,7 +6,7 @@ import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
 
 const Category = ({ categories, status }) => {
-    if (status === STATUS.Error) return <Error />;
+    if (status === STATUS.ERROR) return <Error />;
     if (status === STATUS.LOADING) return <Loader />;
 
     return (

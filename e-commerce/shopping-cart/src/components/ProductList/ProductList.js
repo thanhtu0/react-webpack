@@ -3,7 +3,7 @@ import { STATUS } from "../../utils/status";
 import "./ProductList.scss";
 import { setModalData, setIsModalVisible } from "../../store/modalSlice";
 import SingleProduct from "../SingleProduct/SingleProduct";
-import { userSelector, useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { formatPrice } from "../../utils/helpers";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";

@@ -13,7 +13,6 @@ const SingleCategory = ({ products, status }) => {
     const { isModalVisible } = useSelector((state) => state.modal);
 
     const viewModalHandler = (data) => {
-        console.log(data);
         dispatch(setModalData(data));
         dispatch(setIsModalVisible(true));
     };
@@ -24,6 +23,7 @@ const SingleCategory = ({ products, status }) => {
     return (
         <section className="cat-single py-5 bg-ghost-white">
             {isModalVisible && <SingleProduct />}
+
             <div className="container">
                 <div className="cat-single-content">
                     <div className="section-title">
@@ -51,9 +51,9 @@ const SingleCategory = ({ products, status }) => {
                                     <h6 className="product-item-title text-pine-green fw-4 fs-15">
                                         {product.title}
                                     </h6>
-                                </div>
-                                <div className="product-item-price text-regal-blue fw-7 fs-18">
-                                    {formatPrice(product.price)}
+                                    <div className="product-item-price text-regal-blue fw-7 fs-18">
+                                        {formatPrice(product.price)}
+                                    </div>
                                 </div>
                             </div>
                         ))}
