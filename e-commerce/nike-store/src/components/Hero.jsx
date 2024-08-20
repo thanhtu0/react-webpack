@@ -3,72 +3,63 @@ import Clips from '../utils/Clips';
 import SocialLink from '../utils/SocialLink';
 
 const Hero = ({ heroapi: { title, subtitle, btntext, img, sociallinks, videos } }) => {
-	return (
-		<>
-			<div className='relative h-auto w-auto flex flex-col'>
-				<div className='bg-theme clip-path h-[85vh] lg:h-[75vh] md:h-[65vh] sm:h-[55vh] w-auto absolute top-0 left-0 right-0 opacity-100 z-10'></div>
-				<div className='relative opacity-100 z-20 grid items-center justify-items-center nike-container'>
-					<div className='grid items-center justify-items-center mt-28 md:mt-24'>
-						<h1 className='text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-slate-200'>
-							{title}
-						</h1>
-						<h1 className='text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-slate-200'>
-							{subtitle}
-						</h1>
-						<button
-							type='button'
-							className='button-theme bg-slate-200  shadow-slate-200 rounded-xl my-5'>
-							{btntext}
-						</button>
-						<div className='grid items-center gap-5 md:gap-3 absolute top-[33vh] lg:top-[27vh] left-[11%] xl:left-0 w-auto h-auto'>
-							{videos?.map((val, i) => (
-								<Clips
-									key={i}
-									imgsrc={val.imgsrc}
-									clip={val.clip}
-								/>
-							))}
-						</div>
-						<div className='grid items-center absolute top-[33vh] lg:top-[27vh] right-0 gap-3'>
-							{sociallinks?.map((val, i) => (
-								<SocialLink
-									key={i}
-									icon={val.icon}
-								/>
-							))}
-						</div>
-					</div>
-					<div className='flex items-center'>
-						<img
-							src={img}
-							alt='hero-img/img'
-							className='w-auto h-[45vh] lg:h-[35vh] md:h-[31vh] sm:h-[21vh] xsm:h-[19vh] transitions-theme -rotate-[25deg] hover:rotate-0 cursor-pointer object-fill'
-						/>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+    return (
+        <>
+            <div className="relative flex h-auto w-auto flex-col">
+                <div className="bg-theme clip-path absolute left-0 right-0 top-0 z-10 h-[85vh] w-auto opacity-100 lg:h-[75vh] md:h-[65vh] sm:h-[55vh]"></div>
+                <div className="nike-container relative z-20 grid items-center justify-items-center opacity-100">
+                    <div className="mt-28 grid items-center justify-items-center md:mt-24">
+                        <h1 className="text-6xl font-extrabold text-slate-200 drop-shadow-sm filter lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl">
+                            {title}
+                        </h1>
+                        <h1 className="text-6xl font-extrabold text-slate-200 drop-shadow-sm filter lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl">
+                            {subtitle}
+                        </h1>
+                        <button type="button" className="button-theme my-5 rounded-xl bg-slate-200 shadow-slate-200">
+                            {btntext}
+                        </button>
+                        <div className="absolute left-[11%] top-[33vh] grid h-auto w-auto items-center gap-5 xl:left-0 lg:top-[27vh] md:gap-3">
+                            {videos?.map((val, i) => (
+                                <Clips key={i} imgsrc={val.imgsrc} clip={val.clip} />
+                            ))}
+                        </div>
+                        <div className="absolute right-0 top-[33vh] grid items-center gap-3 lg:top-[27vh]">
+                            {sociallinks?.map((val, i) => (
+                                <SocialLink key={i} icon={val.icon} />
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex items-center">
+                        <img
+                            src={img}
+                            alt="hero-img/img"
+                            className="transitions-theme h-[45vh] w-auto -rotate-[25deg] cursor-pointer object-fill hover:rotate-0 lg:h-[35vh] md:h-[31vh] sm:h-[21vh] xsm:h-[19vh]"
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 };
 
 Hero.propTypes = {
-	heroapi: PropTypes.shape({
-		title: PropTypes.string.isRequired,
-		subtitle: PropTypes.string.isRequired,
-		btntext: PropTypes.string.isRequired,
-		img: PropTypes.string.isRequired,
-		sociallinks: PropTypes.arrayOf(
-			PropTypes.shape({
-				icon: PropTypes.string.isRequired,
-			})
-		).isRequired,
-		videos: PropTypes.arrayOf(
-			PropTypes.shape({
-				imgsrc: PropTypes.string.isRequired,
-				clip: PropTypes.string.isRequired,
-			})
-		).isRequired,
-	}).isRequired,
+    heroapi: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+        btntext: PropTypes.string.isRequired,
+        img: PropTypes.string.isRequired,
+        sociallinks: PropTypes.arrayOf(
+            PropTypes.shape({
+                icon: PropTypes.string.isRequired,
+            }),
+        ).isRequired,
+        videos: PropTypes.arrayOf(
+            PropTypes.shape({
+                imgsrc: PropTypes.string.isRequired,
+                clip: PropTypes.string.isRequired,
+            }),
+        ).isRequired,
+    }).isRequired,
 };
 
 export default Hero;
