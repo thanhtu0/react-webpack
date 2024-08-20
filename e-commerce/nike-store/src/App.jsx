@@ -1,9 +1,10 @@
-import { FlexContent, Hero, Sales, Stories } from './components';
-import { heroapi, popularsales, toprateslaes, highlight, sneaker, story } from './data/data.js';
+import { FlexContent, Footer, Hero, Navbar, Sales, Stories } from './components';
+import { heroapi, popularsales, toprateslaes, highlight, sneaker, story, footerAPI } from './data/data.js';
 
 const App = () => {
     return (
         <>
+            <Navbar />
             <main className="relative flex flex-col gap-16">
                 <Hero heroapi={heroapi} />
                 <Sales endpoint={popularsales} ifExists />
@@ -12,6 +13,7 @@ const App = () => {
                 <FlexContent endpoint={sneaker} />
                 <Stories story={story} />
             </main>
+            <Footer footerAPI={footerAPI} />
         </>
     );
 };
