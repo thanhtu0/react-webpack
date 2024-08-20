@@ -3,14 +3,33 @@ import Title from '../utils/Title';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { ClockIcon, HashtagIcon, HeartIcon } from '@heroicons/react/24/solid';
+import { truncate } from 'lodash';
 
 const Stories = ({ story: { title, news } }) => {
+    const splideOptions = {
+        perPage: 4,
+        perMove: 1,
+        type: 'loop',
+        rewind: true,
+        keyboard: 'global',
+        gap: '1rem',
+        pagination: false,
+        padding: '2rem',
+        breakpoints: {
+            1200: { perPage: 3 },
+            991: { perPage: 2.3 },
+            768: { perPage: 2 },
+            500: { perPage: 1.3 },
+            425: { perPage: 1 },
+        },
+    };
+
     return (
         <>
             <div className="nike-container mb-11">
                 <Title title={title} />
-                <div className="">
-                    <Splide>
+                <div className="mt-7">
+                    <Splide options={splideOptions}>
                         {news.map((val, i) => (
                             <SplideSlide key={i} className="mb-0.5">
                                 <div className="ring-slate200 relative grid items-center gap-4 rounded-lg pb-2 shadow shadow-slate-200 ring-1">
@@ -41,7 +60,9 @@ const Stories = ({ story: { title, news } }) => {
 
                                     <div className="grid items-center justify-items-start px-4">
                                         <h1 className="text-base font-semibold lg:text-sm">{val.title}</h1>
-                                        <p className="text-justify text-sm lg:text-xs">{val.text}</p>
+                                        <p className="text-justify text-sm lg:text-xs">
+                                            {truncate(val.text, { length: 175 })}
+                                        </p>
                                     </div>
 
                                     <div className="flex w-full items-center justify-center px-4">
