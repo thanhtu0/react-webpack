@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import { StarIcon, ShoppingBagIcon } from '@heroicons/react/24/solid';
-const Item = ({ id, title, text, rating, btn, img, price, color, shadow }) => {
-    console.log(id);
+const Item = ({ ifExists, id, title, text, rating, btn, img, price, color, shadow }) => {
     return (
         <>
             <div
-                className={`relative bg-gradient-to-b ${color} ${shadow} grid w-full items-center justify-items-center rounded-xl px-5 py-4 transition-all duration-700 ease-in-out hover:scale-105`}
+                className={`relative bg-gradient-to-b ${color} ${shadow} grid w-full items-center ${ifExists ? 'justify-items-start' : 'justify-items-center'} rounded-xl px-5 py-4 transition-all duration-700 ease-in-out hover:scale-105`}
             >
-                <div className="grid items-center justify-items-center">
+                <div className={`grid items-center ${ifExists ? 'justify-items-start' : 'justify-items-center'}`}>
                     <h1 className="text-xl font-medium text-slate-200 drop-shadow filter lg:text-lg md:text-base">
                         {title}
                     </h1>
@@ -38,8 +37,12 @@ const Item = ({ id, title, text, rating, btn, img, price, color, shadow }) => {
                         </button>
                     </div>
                 </div>
-                <div className="flex items-center">
-                    <img src={img} alt="img/item-img" className="transitions-theme h-36 w-64 hover:-rotate-12" />
+                <div className={`flex items-center ${ifExists ? 'absolute right-1 top-5' : 'justify-center'}`}>
+                    <img
+                        src={img}
+                        alt={`img/item-img/${id}`}
+                        className={`transitions-theme hover:-rotate-12 ${ifExists ? 'md:-48 h-auto w-64 -rotate-[35deg] lg:w-56' : 'h-36 w-64'}`}
+                    />
                 </div>
             </div>
         </>
@@ -47,6 +50,7 @@ const Item = ({ id, title, text, rating, btn, img, price, color, shadow }) => {
 };
 
 Item.propTypes = {
+    ifExists: PropTypes.bool.isRequired,
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     text: PropTypes.string,

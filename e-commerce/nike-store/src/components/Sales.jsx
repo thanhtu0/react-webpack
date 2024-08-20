@@ -2,14 +2,16 @@ import PropTypes from 'prop-types';
 import Item from '../utils/Item';
 import Title from '../utils/Title';
 
-const Sales = ({ endpoint: { title, items } }) => {
+const Sales = ({ ifExists, endpoint: { title, items } }) => {
     return (
         <>
             <div className="nike-container">
                 <Title title={title} />
-                <div className="mt-7 grid grid-cols-4 items-center justify-items-center gap-7 xl:grid-cols-3 lg:gap-5 md:grid-cols-2 sm:grid-cols-1">
+                <div
+                    className={`mt-7 grid items-center justify-items-center gap-7 lg:gap-5 ${ifExists ? 'grid-cols-3 xl:grid-cols-2 sm:grid-cols-1' : 'grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'}`}
+                >
                     {items?.map((item, i) => (
-                        <Item {...item} key={i} />
+                        <Item {...item} key={i} ifExists={ifExists} />
                     ))}
                 </div>
             </div>
@@ -18,6 +20,7 @@ const Sales = ({ endpoint: { title, items } }) => {
 };
 
 Sales.propTypes = {
+    ifExists: PropTypes.bool.isRequired,
     endpoint: PropTypes.shape({
         title: PropTypes.string.isRequired,
         items: PropTypes.arrayOf(
