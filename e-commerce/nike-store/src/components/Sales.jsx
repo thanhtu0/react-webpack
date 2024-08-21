@@ -20,7 +20,7 @@ const Sales = ({ ifExists, endpoint: { title, items } }) => {
 };
 
 Sales.propTypes = {
-    ifExists: PropTypes.bool.isRequired,
+    ifExists: PropTypes.bool,
     endpoint: PropTypes.shape({
         title: PropTypes.string.isRequired,
         items: PropTypes.arrayOf(

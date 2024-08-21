@@ -37,12 +37,17 @@ const Footer = ({ footerAPI: { titles, links } }) => {
 
 Footer.propTypes = {
     footerAPI: PropTypes.shape({
-        titles: PropTypes.string.isRequired,
-        links: PropTypes.arrayOf(
+        titles: PropTypes.arrayOf(
             PropTypes.shape({
-                text: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired,
+                title: PropTypes.string.isRequired,
             }),
+        ).isRequired,
+        links: PropTypes.arrayOf(
+            PropTypes.arrayOf(
+                PropTypes.shape({
+                    link: PropTypes.string.isRequired,
+                }),
+            ),
         ).isRequired,
     }).isRequired,
 };

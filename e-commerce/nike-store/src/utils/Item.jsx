@@ -79,16 +79,16 @@ const Item = ({ ifExists, id, color, shadow, title, text, img, btn, rating, pric
 };
 
 Item.propTypes = {
-    ifExists: PropTypes.bool.isRequired,
+    ifExists: PropTypes.bool,
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    text: PropTypes.string,
-    rating: PropTypes.number,
-    btn: PropTypes.bool,
-    img: PropTypes.string,
-    price: PropTypes.number,
-    color: PropTypes.string,
-    shadow: PropTypes.bool,
+    text: PropTypes.string.isRequired,
+    rating: PropTypes.string.isRequired,
+    btn: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    shadow: PropTypes.string.isRequired,
 };
 
 export default Item;
