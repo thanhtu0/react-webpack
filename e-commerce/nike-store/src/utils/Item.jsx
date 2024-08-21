@@ -1,10 +1,32 @@
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+
 import { StarIcon, ShoppingBagIcon } from '@heroicons/react/24/solid';
-const Item = ({ ifExists, id, title, text, rating, btn, img, price, color, shadow }) => {
+import { setAddItemToCart, setOpenCart } from '../app/CartSlice';
+
+const Item = ({ ifExists, id, color, shadow, title, text, img, btn, rating, price }) => {
+    const dispatch = useDispatch();
+
+    const onAddToCart = () => {
+        const item = { id, title, text, img, color, shadow, price };
+
+        dispatch(setAddItemToCart(item));
+    };
+
+    const onCartToggle = () => {
+        dispatch(
+            setOpenCart({
+                cartState: true,
+            }),
+        );
+    };
+
     return (
         <>
             <div
-                className={`relative bg-gradient-to-b ${color} ${shadow} grid w-full items-center ${ifExists ? 'justify-items-start' : 'justify-items-center'} rounded-xl px-5 py-4 transition-all duration-700 ease-in-out hover:scale-105`}
+                className={`relative bg-gradient-to-b ${color} ${shadow} grid items-center ${
+                    ifExists ? 'justify-items-start' : 'justify-items-center'
+                } w-full rounded-xl px-5 py-4 transition-all duration-700 ease-in-out hover:scale-105`}
             >
                 <div className={`grid items-center ${ifExists ? 'justify-items-start' : 'justify-items-center'}`}>
                     <h1 className="text-xl font-medium text-slate-200 drop-shadow filter lg:text-lg md:text-base">
@@ -26,12 +48,17 @@ const Item = ({ ifExists, id, title, text, rating, btn, img, price, color, shado
                         <button
                             type="button"
                             className="blur-effect-theme button-theme bg-white/90 p-0.5 shadow shadow-sky-200"
+                            onClick={() => onAddToCart()}
                         >
                             <ShoppingBagIcon className="icon-style text-slate-900" />
                         </button>
                         <button
                             type="button"
                             className="blur-effect-theme button-theme bg-white/90 px-2 py-1 text-sm text-black shadow shadow-sky-200"
+                            onClick={() => {
+                                onAddToCart();
+                                onCartToggle();
+                            }}
                         >
                             {btn}
                         </button>
@@ -41,7 +68,9 @@ const Item = ({ ifExists, id, title, text, rating, btn, img, price, color, shado
                     <img
                         src={img}
                         alt={`img/item-img/${id}`}
-                        className={`transitions-theme hover:-rotate-12 ${ifExists ? 'md:-48 h-auto w-64 -rotate-[35deg] lg:w-56' : 'h-36 w-64'}`}
+                        className={`transitions-theme hover:-rotate-12 ${
+                            ifExists ? 'h-auto w-64 -rotate-[35deg] lg:w-56 md:w-48' : 'h-36 w-64'
+                        }`}
                     />
                 </div>
             </div>
