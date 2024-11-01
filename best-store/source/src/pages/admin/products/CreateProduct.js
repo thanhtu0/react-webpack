@@ -155,6 +155,7 @@ export default function CreateProduct() {
                                 </span>
                             </div>
                         </div>
+                        
 
                         <div className="row">
                             <div className="offset-sm-4 col-sm-4 d-grid">
